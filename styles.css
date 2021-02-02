@@ -24,6 +24,7 @@ header{
 main{
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 .container{
@@ -32,17 +33,15 @@ main{
     max-width: 1024px;
     flex-wrap: wrap;
     flex-direction: row;
-    position: absolute;
     z-index: 2;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     overflow: auto;
-    height: 100%;
+    gap: 30px;
 }
 
 .frame {
     width: 80%;
-    margin: 10px;
     outline: none;
     background: #FAFAFA;
     border-radius: 8px;
@@ -51,6 +50,9 @@ main{
     box-sizing: border-box;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
     cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .frame:hover{
@@ -63,9 +65,11 @@ main{
     border-radius: 8px;
     font-weight: 600;
     text-align: center;
+    flex: 1 1 auto;
 }
 
 .title{
+    align-self: flex-start;
     display: flex;
     align-items: center;
     font-weight: 500;
