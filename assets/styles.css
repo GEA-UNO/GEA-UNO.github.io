@@ -17,6 +17,8 @@ body {
     background-color: #259ead;
 }
 
+a:hover{ cursor:  pointer }
+
 header{
     margin-top: 2rem;
 }
@@ -92,6 +94,18 @@ header{
 img {
     max-width: 130px;
 }
+
+.back-arrow{
+    position: fixed;
+    z-index: 3;
+    color: #e02f6b;
+    font-size: 30px;
+    border: 1px solid white;
+    margin-top: -1rem;
+    margin-left: 2%;
+    border-radius: 1000px;
+}
+
 .ocean {
     background: #e02f6b;
     height: 10%;
