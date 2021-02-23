@@ -1,8 +1,5 @@
-const url = "url aca";
+const url = "http://igna98.alwaysdata.net/link/";
 
 function increment(name){
-    fetch(url, {
-        method: "PUT",
-        body: JSON.stringify(name)
-    })
+    fetch(`${url}${name}`, { method: "PATCH" })
 }
