@@ -15,6 +15,9 @@ body {
     margin: 0px;
     overflow-x: hidden;
     background-color: #259ead;
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 60px;
 }
 
 a:hover{ cursor:  pointer }
@@ -95,6 +98,20 @@ img {
     max-width: 130px;
 }
 
+
+footer{
+    margin: 5px 0px 15px 0px;
+    color: #FAFAFA;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0px;
+    position: absolute;
+    width: 100%;
+}
+footer a:hover{ color: #444444 }
+
 .back-arrow{
     position: fixed;
     z-index: 3;
@@ -129,6 +146,7 @@ img {
     animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
     opacity: 1;
 }
+
 @keyframes wave {
   0% {
     margin-left: 0;
