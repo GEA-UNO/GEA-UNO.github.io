@@ -1,4 +1,4 @@
-const url = "https://igna98.alwaysdata.net/link/";
+const url = "https://igna98.alwaysdata.net/";
 
 function increment(name){
         fetch(`${url}${name}`, { method: "PATCH", redirect: "manual" })
