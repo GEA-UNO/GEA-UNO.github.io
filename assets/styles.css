@@ -45,6 +45,10 @@ main{
     gap: 30px;
 }
 
+.jcAround{
+    justify-content: space-around !important;
+}
+
 .frame {
     width: 80%;
     outline: none;
@@ -58,6 +62,10 @@ main{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+}
+
+.fullW{
+    width: auto;
 }
 
 .frame:hover{
@@ -81,6 +89,12 @@ main{
     margin-bottom: 4px;
 }
 
+.title2{
+    font-weight: 500;
+    font-size:20px;
+    color: #e02f6b;
+}
+
 .iconify{
     margin-left: 2px;
     margin-right: 5px;
@@ -97,7 +111,6 @@ header{
 img {
     max-width: 130px;
 }
-
 
 footer{
     margin: 5px 0px 15px 0px;
@@ -147,6 +160,62 @@ footer a:hover{ color: #444444 }
     opacity: 1;
 }
 
+#formContainer{
+    text-align: center;
+    flex: 0 1 40%;
+}
+
+#formulario{
+    display: flex;
+    flex-direction: column;
+    background: #ffffffaa;
+    text-align: center;
+    border: 3px solid #e02f6baa;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    padding: 1em;
+    margin: auto;
+}
+
+.formChild{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.inptCentered{
+    justify-content: space-evenly;     
+}
+
+#isImg{  
+    width: 15px;
+    height: 15px;
+    margin-top: 2px;
+}
+
+input{
+    background: #F3F3F3cc;
+    padding: 5px 7px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    color: #c01d53;
+}
+
+input[type="submit"]{
+    padding: 6px 20px;
+    background: #259ead;
+    color: #EEEEEE;
+    border-radius: 6px;
+}
+#preview{
+    text-align: center;
+    flex: 0 1 40%;
+}
+#preview a.frame{
+    margin: auto;
+}
+
 @keyframes wave {
   0% {
     margin-left: 0;
@@ -172,6 +241,9 @@ footer a:hover{ color: #444444 }
     .frame{
         width: 40%;
     }
+    .fullW{
+        width: auto;
+    }
     img{
         max-width: 170px
     }
@@ -180,6 +252,10 @@ footer a:hover{ color: #444444 }
 @media screen and (min-width: 768px) {
     .frame{
         width: 30%;
+        max-width: 260px;
+    }
+    .fullW{
+        width: auto;
         max-width: 260px;
     }
     img{

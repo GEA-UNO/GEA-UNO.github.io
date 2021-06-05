@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../assets/student.svg">
+    <title>Crear un link</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Lista de links útiles 2021" />
+    <meta name="og:image" itemprop="image" content="https://gea-uno.github.io/assets/Open-Graph-Canvas.png" />
+    <meta name="og:title" content="Grupo de Estudiantes Autoconvocados" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Grupo de Estudiantes Autoconvocados">
+    <meta property="og:image:type" content="image/png" />
+</head>
+
+<body>
+    <header>
+        <img src="../assets/gea-logo.png" loading="lazy" alt="GEA" />
+        <h1>Crear un link</h1>
+    </header>
+
+    <main>
+        <div id="container" class="jcAround">
+            <div id="formContainer" >
+                <form id="formulario">
+                    <div class="formChild">
+                        <label for="tag"> Tag del link* </label>
+                        <input type="text" name="tag" id="tag" required/>                        
+                    </div>
+                    <div class="formChild">
+                        <label for="link"> El link* </label>
+                        <input type="text" name="link" id="link" required/>                        
+                    </div>
+                    <div class="formChild">
+                        <label for="title"> Titulo descriptivo* </label>
+                        <input type="text" name="title" id="title" required/>                        
+                    </div>
+                    <div class="formChild">
+                        <label for="desc"> Descripcion del link </label>
+                        <input type="text" name="desc" id="desc"/>                        
+                    </div>
+                    <div class="formChild">
+                        <label for="fathers"> Pagina padre* </label>
+                        <input type="text" name="fathers" id="fathers" required/>                        
+                    </div>
+                    <div class="formChild inptCentered">
+                        <input type="checkbox" name="isImg" id="isImg"/> 
+                        <label for="isImg"> Icono como imagen </label>                       
+                    </div>
+                    <div class="formChild">
+                        <label for="iconStyle"> Icono* </label>
+                        <input type="text" name="iconStyle" id="iconStyle" required/>                        
+                    </div>
+                    <div class="formChild">
+                        <label for="apiKey"> Password* </label>
+                        <input type="password" name="apiKey" id="apiKey" required/>                        
+                    </div>
+                    <div class="formChild inptCentered">
+                        <input type="submit"/>                        
+                    </div>
+                </form>
+            </div>
+
+            <div id="preview">
+                <div class="title2"> Preview </div>
+                <a class="frame fullW" href="">
+                    <div class="title">
+                        <span class="iconify" ></span>
+                        <img class="iconify" />
+                    </div>
+                    <div class="content"> </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+
+
+    <footer>
+        <img class="iconify" src="../assets/gea-logo.png" loading="lazy" alt="GEA" width="30px"/>
+        <a href="https://www.instagram.com/autoconvocadosuno/">
+            <i>Desarrollado por GEA</i>
+        </a>
+    </footer>
+
+    <div class="ocean">
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+    <script src="postLink.js"></script>
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+</body>
+</html>
