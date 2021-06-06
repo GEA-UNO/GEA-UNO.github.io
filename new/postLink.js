@@ -1,7 +1,7 @@
 const url = "https://igna98.alwaysdata.net/";
 
 const create = (data, key) => {
-    fetch(`${url}/link?key=${key}`, {
+    fetch(`${url}link?key=${key}`, {
         method: "POST",
         redirect: "manual",
         headers: {
@@ -9,7 +9,15 @@ const create = (data, key) => {
         },
         body: JSON.stringify(data),
     })
-        .then((res) => console.log(res.json))
+        .then((res) => {
+            if(res.status === 201){
+                alert(`Respuesta aceptada, link ${res.json.name} creado`);
+            } else if(res.status === 401){
+                alert("Error la password es incorrecta");
+            } else if(res.status === 500){
+                alert("Error en el servidor, vuelve a intentar mas tarde");
+            }
+        })
         .catch((err) => console.log(err));
 };
 
@@ -122,19 +130,45 @@ const validTag = (existentsLinks) => {
     return true;
 };
 
+const linkFactory = () => {
+    let desc = document.getElementById("desc").value;
+    let fathers = document.getElementById("fathers").value;
+    let tag = document.getElementById("tag").value;
+    let link = document.getElementById("link").value;
+    let tit = document.getElementById("title").value;
+    let icon = document.getElementById("iconStyle").value;
+    if(desc && desc.length > 8){
+        return {
+            father: fathers,
+            name: tag,
+            count: 0,
+            url: link,
+            title: tit,
+            description: desc,
+            iconStyle: icon
+        }
+    }
+    return {
+        father: fathers,
+        name: tag,
+        count: 0,
+        url: link,
+        title: tit,
+        iconStyle: icon
+    }
+}
+
 const sendData = (e, pageUrl, existentsLinks) => {
     e.preventDefault();
+    let inApiKey = document.getElementById("apiKey");
     if(validInputs(pageUrl, existentsLinks)) {
-        console.log("enviar");
+        create(linkFactory(), inApiKey.value)
     }
 }
 
 const controlForm = (pageUrl, existentsLinks) => {
-    let inTag = document.getElementById("tag");
-    inTag.addEventListener("change", () => validTag(existentsLinks));
-    let inFathers = document.getElementById("fathers");
-    inFathers.addEventListener("change", () => validFathers(pageUrl));
-    let inApiKey = document.getElementById("apiKey");
+    document.getElementById("tag").addEventListener("change", () => validTag(existentsLinks));
+    document.getElementById("fathers").addEventListener("change", () => validFathers(pageUrl));
 
     let inLink = document.getElementById("link");
     inLink.addEventListener("input", linkChange);
@@ -144,8 +178,7 @@ const controlForm = (pageUrl, existentsLinks) => {
     document.getElementById("descTest").style.display = "none";
     inDesc.addEventListener("input", descChange);
 
-    let inTitle = document.getElementById("title");
-    inTitle.addEventListener("input", titleChange);
+    document.getElementById("title").addEventListener("input", titleChange);
 
     let inIsImg = document.getElementById("isImg");
     inIsImg.addEventListener("input", titleChange);
@@ -159,14 +192,21 @@ const controlForm = (pageUrl, existentsLinks) => {
     formulario.addEventListener("submit", (e) => sendData(e, pageUrl, existentsLinks))
 };
 
-const controlNotas = () => {
+const controlNotas = (pageUrl) => {
+    let state = false;
     let notas = document.getElementById("notas");
     notas.style.display = "none";
+    document.getElementById("btnVer").addEventListener("click", (e) => {
+        console.log("in")
+        notas.style.display = state?  "none" : "block";
+        state = !state;
+    })
+    document.getElementById("fatherListInterpolate").innerText = `[ ${pageUrl.map(e => ' '+e)} ]`;
 };
 
 window.addEventListener("load", async () => {
     let pageUrl = await getPages();
     let existentsLinks = await getLinks();
     await controlForm(pageUrl, existentsLinks);
-    controlNotas();
+    controlNotas(pageUrl);
 });
