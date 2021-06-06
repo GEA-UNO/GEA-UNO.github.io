@@ -1,102 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="../assets/student.svg" />
+        <title>Crear un link</title>
+        <link rel="stylesheet" href="../assets/styles.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap"
+            rel="stylesheet"
+        />
+        <meta name="description" content="Lista de links útiles 2021" />
+        <meta
+            name="og:image"
+            itemprop="image"
+            content="https://gea-uno.github.io/assets/Open-Graph-Canvas.png"
+        />
+        <meta name="og:title" content="Grupo de Estudiantes Autoconvocados" />
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:site_name"
+            content="Grupo de Estudiantes Autoconvocados"
+        />
+        <meta property="og:image:type" content="image/png" />
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../assets/student.svg">
-    <title>Crear un link</title>
-    <link rel="stylesheet" href="../assets/styles.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap" rel="stylesheet">
-    <meta name="description" content="Lista de links útiles 2021" />
-    <meta name="og:image" itemprop="image" content="https://gea-uno.github.io/assets/Open-Graph-Canvas.png" />
-    <meta name="og:title" content="Grupo de Estudiantes Autoconvocados" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Grupo de Estudiantes Autoconvocados">
-    <meta property="og:image:type" content="image/png" />
-</head>
+    <body>
+        <header>
+            <img src="../assets/gea-logo.png" loading="lazy" alt="GEA" />
+            <h1>Crear un link</h1>
+        </header>
 
-<body>
-    <header>
-        <img src="../assets/gea-logo.png" loading="lazy" alt="GEA" />
-        <h1>Crear un link</h1>
-    </header>
+        <main>
+            <div id="container" class="jcAround">
+                <div id="formContainer">
+                    <form id="formulario">
+                        <div class="formChild">
+                            <label for="tag"> Tag del link* </label>
+                            <input
+                                type="text"
+                                name="tag"
+                                id="tag"
+                                placeholder="enf-algo"
+                                required
+                            />
+                        </div>
+                        <div class="formChild">
+                            <label for="link"> El link* </label>
+                            <input
+                                type="text"
+                                name="link"
+                                id="link"
+                                placeholder="https://enfermeria.com"
+                                required
+                            />
+                        </div>
+                        <div class="formChild">
+                            <label for="title"> Titulo descriptivo* </label>
+                            <input
+                                type="text"
+                                name="title"
+                                id="title"
+                                placeholder="Pagina Enfermeria"
+                                required
+                            />
+                        </div>
+                        <div class="formChild">
+                            <label for="desc"> Descripcion del link </label>
+                            <input
+                                type="text"
+                                name="desc"
+                                id="desc"
+                                placeholder="Una pagina de enfermeria"
+                            />
+                        </div>
+                        <div class="formChild">
+                            <label for="fathers"> Pagina padre* </label>
+                            <input
+                                type="text"
+                                name="fathers"
+                                id="fathers"
+                                placeholder="/enf,/uno,/uno-docs"
+                                required
+                            />
+                        </div>
+                        <div class="formChild inptCentered">
+                            <input type="checkbox" name="isImg" id="isImg" />
+                            <label for="isImg"> Icono como imagen </label>
+                        </div>
+                        <div class="formChild">
+                            <label for="iconStyle"> Icono* </label>
+                            <input
+                                type="text"
+                                name="iconStyle"
+                                id="iconStyle"
+                                placeholder="Ver notas..."
+                                required
+                            />
+                        </div>
+                        <div class="formChild">
+                            <label for="apiKey"> Password* </label>
+                            <input
+                                type="password"
+                                name="apiKey"
+                                id="apiKey"
+                                placeholder="Clave de la api"
+                                required
+                            />
+                        </div>
+                        <div class="formChild inptCentered">
+                            <input type="submit" class="btn" />
+                        </div>
+                    </form>
+                </div>
 
-    <main>
-        <div id="container" class="jcAround">
-            <div id="formContainer" >
-                <form id="formulario">
-                    <div class="formChild">
-                        <label for="tag"> Tag del link* </label>
-                        <input type="text" name="tag" id="tag" placeholder="enf-algo" required/>                        
-                    </div>
-                    <div class="formChild">
-                        <label for="link"> El link* </label>
-                        <input type="text" name="link" id="link" placeholder="https://enfermeria.com" required/>                        
-                    </div>
-                    <div class="formChild">
-                        <label for="title"> Titulo descriptivo* </label>
-                        <input type="text" name="title" id="title" placeholder="Pagina Enfermeria" required/>                        
-                    </div>
-                    <div class="formChild">
-                        <label for="desc"> Descripcion del link </label>
-                        <input type="text" name="desc" id="desc" placeholder="Una pagina de enfermeria"/>                        
-                    </div>
-                    <div class="formChild">
-                        <label for="fathers"> Pagina padre* </label>
-                        <input type="text" name="fathers" id="fathers" placeholder="/enf,/uno,/uno-docs" required/>                        
-                    </div>
-                    <div class="formChild inptCentered">
-                        <input type="checkbox" name="isImg" id="isImg"/> 
-                        <label for="isImg"> Icono como imagen </label>                       
-                    </div>
-                    <div class="formChild">
-                        <label for="iconStyle"> Icono* </label>
-                        <input type="text" name="iconStyle" id="iconStyle" placeholder="Ver notas..." required/>                        
-                    </div>
-                    <div class="formChild">
-                        <label for="apiKey"> Password* </label>
-                        <input type="password" name="apiKey" id="apiKey" placeholder="Clave de la api" required/>                        
-                    </div>
-                    <div class="formChild inptCentered">
-                        <input type="submit" class="btn"/>                        
-                    </div>
-                </form>
-            </div>
+                <div id="preview">
+                    <div class="title2">Preview</div>
+                    <a id="linkTest" class="frame fullW" href="">
+                        <div id="titleTest" class="title"></div>
+                        <div class="content" id="descTest"></div>
+                    </a>
+                </div>
 
-            <div id="preview">
-                <div class="title2"> Preview </div>
-                <a id="linkTest" class="frame fullW" href="">
-                    <div id="titleTest" class="title"> </div>
-                    <div class="content" id="descTest"> </div>
-                </a>
-            </div>
+                <div id="notasContainer">
+                    <button id="btnVer" class="btn">Ver notas</button>
+                    <div id="notas" class="frame">
+                        <div class="title">
+                            Este es un tutorial para rellenar el
+                            formulario de manera correcta
+                        </div>
+                        <div class="content inNotas">
+                            <b>Tag:</b> este es un nombre por el cual se
+                            identifica univocamente al link a crear,
+                            <b>es importante que este no se repita</b>, lo
+                            apropiado es que tenga una estructura
+                            <b>"pagina-nombre"</b>, donde pagina es el padre y
+                            puede ser alguno de estas: <br /><br />[ enf, inicio,
+                            info, admin, info-comun, redes, links, links-docs,
+                            hum, tutos, ingq ]
+                        </div>
+                        <div class="content inNotas">
+                            <b>Link:</b> esta es <b>la url</b> a la cual queres
+                            referenciar, debe tener http o https.
+                        </div>
+                        <div class="content inNotas">
+                            <b>Titulo:</b> el <b>texto principal</b> visible en
+                            la tarjeta, no hay restricciones.
+                        </div>
+                        <div class="content inNotas">
+                            <b>Descripcion:</b> el
+                            <b>texto secundario</b> visible en la tarjeta, es
+                            <b>opcional</b>, evitarlo si el titulo es
+                            auto-descriptivo.
+                        </div>
+                        <div class="content inNotas">
+                            <b>Pagina padre:</b> indica en que paginas aparecera
+                            la tarjeta, puede aparecer en mas de una, la
+                            estructura es <b>"/pagina"</b> o
+                            <b>"/pag1,/pag2,...,/pagN"</b>, deben estar
+                            separadas por coma, sin espacios, lista de
+                            padres:<br /><br />
+                            <span id="fatherListInterpolate"></span>
+                        </div>
+                        <div class="content inNotas">
+                            <b>Icono como imagen:</b> determina si el icono es a
+                            partir de un link a una imagen, por defecto es un
+                            vector(svg).
+                        </div>
+                        <div class="content inNotas">
+                            <b>Icono:</b> el icono/imagen a mostrar. El
+                            width/font-size puede ser 24px o 22px, ir cambiando
+                            y viendo como se ve. El color lo mismo, usar una app
+                            externa para elegirlo y el preview para ver ocmo
+                            queda. El icono
+                            <b><a href="https://iconify.design/icon-sets"
+                                    class="underlined">
+                                    elegirlo aqui
+                            </a></b>, lo buscas, seleccionas y copias los datos de
+                            interes del tab 'HTML'
 
-            <div id="notasContainer">
-                <button  class="btn"> Ver notas de formulario </button>
-                <div id="notas">
-                    NOTAS
+                            <br /><br />Si es una <b>imagen</b> debe ser:
+                            src='<b>url a imagen</b>' loading='lazy' width='<b>24px</b>'.
+
+                            <br /><br />Sino la siguiente: data-inline='false'
+                            data-icon='<b>nombre del ic</b>' style='<b
+                                >font-size: 24px; color: #e02f6b;</b
+                            >'.
+                        </div>
+                        <div class="content inNotas">
+                            <b>Password:</b> si esta no es valida no se creara
+                            el link.
+                        </div>
+                    </div>
                 </div>
             </div>
+        </main>
+
+        <footer>
+            <img
+                class="iconify"
+                src="../assets/gea-logo.png"
+                loading="lazy"
+                alt="GEA"
+                width="30px"
+            />
+            <a href="https://www.instagram.com/autoconvocadosuno/">
+                <i>Desarrollado por GEA</i>
+            </a>
+        </footer>
+
+        <div class="ocean">
+            <div class="wave"></div>
+            <div class="wave"></div>
         </div>
-    </main>
-
-    
-
-
-    <footer>
-        <img class="iconify" src="../assets/gea-logo.png" loading="lazy" alt="GEA" width="30px"/>
-        <a href="https://www.instagram.com/autoconvocadosuno/">
-            <i>Desarrollado por GEA</i>
-        </a>
-    </footer>
-
-    <div class="ocean">
-        <div class="wave"></div>
-        <div class="wave"></div>
-    </div>
-    <script src="postLink.js"></script>
-    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
-</body>
+        <script src="postLink.js"></script>
+        <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+    </body>
 </html>
