@@ -18,7 +18,7 @@ const getLinks = () => {
         method: "GET",
     })
         .then((res) => res.json())
-        .then((res) => res.data.map(e => e.name))
+        .then((res) => res.data.map((e) => e.name))
         .catch((err) => console.log(err));
 };
 
@@ -27,7 +27,7 @@ const getPages = () => {
         method: "GET",
     })
         .then((res) => res.json())
-        .then((res) => res.data.map(e => e.url))
+        .then((res) => res.data.map((e) => e.url))
         .catch((err) => console.log(err));
 };
 
@@ -39,8 +39,8 @@ const linkChange = (e) => {
 const descChange = (e) => {
     let desc = document.getElementById("descTest");
     e.target.value == null || e.target.value == ""
-      ? (desc.style.display = "none")
-      : (desc.style.display = "block");
+        ? (desc.style.display = "none")
+        : (desc.style.display = "block");
 
     desc.innerText = e.target.value;
 };
@@ -69,62 +69,69 @@ const titleChange = (e) => {
 };
 
 const validInputs = (pageUrl, existentsLinks) => {
-    validLink();
-    validImg();
-    validFathers(pageUrl);
-    validTag(existentsLinks);
-}
+    if(validLink() && validImg() && validFathers(pageUrl) && validTag(existentsLinks)){
+        return true;
+    }
+    return false;
+};
 
 const validLink = () => {
     let inLink = document.getElementById("link");
-    let expression = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
+    let expression =
+        /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
     let regex = new RegExp(expression);
-    if(!inLink.value.match(regex)){
-        console.log("el link no es valido");//not valid
+    if (!inLink.value.match(regex)) {
+        console.log("el link no es valido"); //not valid
         return false;
     }
-    return true
-}
+    return true;
+};
 
 const validImg = () => {
     let inIsImg = document.getElementById("isImg");
     let inIconStyle = document.getElementById("iconStyle");
-    if (!inIconStyle.value.startsWith("src") && inIsImg.checked){
-        console.log("si es una img debe comenzar con src");//not valid
+    if (!inIconStyle.value.startsWith("src") && inIsImg.checked) {
+        console.log("si es una img debe comenzar con src"); //not valid
         return false;
     }
     return true;
-}
+};
 
 const validFathers = (pageUrl) => {
     let inFathers = document.getElementById("fathers");
     let validFathers = inFathers.value.split(",");
-    let invalidFathers = []
-    validFathers.forEach(e => {
-        if(!pageUrl.includes(e)) invalidFathers.push(e)
-    })
-    if(invalidFathers != undefined){
+    let invalidFathers = [];
+    validFathers.forEach((e) => {
+        if (!pageUrl.includes(e)) invalidFathers.push(e);
+    });
+    if (invalidFathers != undefined && invalidFathers.length > 0) {
         console.log(validFathers);
         console.log(invalidFathers);
-        console.log("los padres ["+invalidFathers+"] no existen");//not valid
+        console.log("los padres [" + invalidFathers + "] no existen"); //not valid
         return false;
     }
     return true;
-}
+};
 
 const validTag = (existentsLinks) => {
     let inTag = document.getElementById("tag");
-    if (existentsLinks.includes(inTag.value)){
-        console.log("el tag existe");//not valid
+    if (existentsLinks.includes(inTag.value)) {
+        console.log("el tag existe"); //not valid
         return false;
     }
     return true;
+};
+
+const sendData = (e, pageUrl, existentsLinks) => {
+    e.preventDefault();
+    if(validInputs(pageUrl, existentsLinks)) {
+        console.log("enviar");
+    }
 }
 
 const controlForm = (pageUrl, existentsLinks) => {
-    console.log(pageUrl);
     let inTag = document.getElementById("tag");
-    inTag.addEventListener('change', () => validTag(existentsLinks))
+    inTag.addEventListener("change", () => validTag(existentsLinks));
     let inFathers = document.getElementById("fathers");
     inFathers.addEventListener("change", () => validFathers(pageUrl));
     let inApiKey = document.getElementById("apiKey");
@@ -148,16 +155,16 @@ const controlForm = (pageUrl, existentsLinks) => {
     inIconStyle.addEventListener("input", titleChange);
     inIconStyle.addEventListener("change", validImg);
 
-    let btnSubmit = document.getElementById("btnSubmit");
-
-}
+    let formulario = document.getElementById("formulario");
+    formulario.addEventListener("submit", (e) => sendData(e, pageUrl, existentsLinks))
+};
 
 const controlNotas = () => {
-    let notas = document.getElementById("notas")
+    let notas = document.getElementById("notas");
     notas.style.display = "none";
-}
+};
 
-window.addEventListener("load", async() => {
+window.addEventListener("load", async () => {
     let pageUrl = await getPages();
     let existentsLinks = await getLinks();
     await controlForm(pageUrl, existentsLinks);
