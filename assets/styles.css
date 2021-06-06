@@ -202,12 +202,14 @@ input{
     color: #c01d53;
 }
 
-input[type="submit"]{
+.btn{
     padding: 7px 20px;
     background: #259ead;
     color: #EEEEEE;
     border-radius: 6px;
     font-size: 14px;
+    border: none;
+    outline: none;
 }
 #preview{
     text-align: center;
@@ -215,6 +217,11 @@ input[type="submit"]{
 }
 #preview a.frame{
     margin: auto;
+}
+
+#notasContainer{
+    text-align: center;
+    flex: 0 1 80%;
 }
 
 @keyframes wave {
