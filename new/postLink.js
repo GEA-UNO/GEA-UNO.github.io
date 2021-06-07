@@ -85,49 +85,60 @@ const validInputs = (pageUrl, existentsLinks) => {
 
 const validLink = () => {
     let inLink = document.getElementById("link");
+    let errLink = document.getElementById("errLink")
     let expression =
         /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
     let regex = new RegExp(expression);
     if (!inLink.value.match(regex)) {
-        console.log("el link no es valido"); //not valid
+        errLink.style.display = "block";
         return false;
+    } else {
+        errLink.style.display = "none";
+        return true;
     }
-    return true;
 };
 
 const validImg = () => {
     let inIsImg = document.getElementById("isImg");
+    let errImg = document.getElementById("errImg");
     let inIconStyle = document.getElementById("iconStyle");
     if (!inIconStyle.value.startsWith("src") && inIsImg.checked) {
-        console.log("si es una img debe comenzar con src"); //not valid
+        errImg.style.display = "block";
         return false;
+    } else {
+        errImg.style.display = "none";
+        return true;
     }
-    return true;
 };
 
 const validFathers = (pageUrl) => {
     let inFathers = document.getElementById("fathers");
+    let errFather = document.getElementById("errFather")
     let validFathers = inFathers.value.split(",");
     let invalidFathers = [];
     validFathers.forEach((e) => {
         if (!pageUrl.includes(e)) invalidFathers.push(e);
     });
     if (invalidFathers != undefined && invalidFathers.length > 0) {
-        console.log(validFathers);
-        console.log(invalidFathers);
-        console.log("los padres [" + invalidFathers + "] no existen"); //not valid
+        errFather.innerText = "*Nota: los padres [" + invalidFathers + "] no existen";
+        errFather.style.display = "block"
         return false;
+    } else {
+        errFather.style.display = "none";
+        return true;
     }
-    return true;
 };
 
 const validTag = (existentsLinks) => {
     let inTag = document.getElementById("tag");
+    let errTag = document.getElementById("errTag");
     if (existentsLinks.includes(inTag.value)) {
-        console.log("el tag existe"); //not valid
+        errTag.style.display = "block";
         return false;
+    } else {
+        errTag.style.display = "none";
+        return true;
     }
-    return true;
 };
 
 const linkFactory = () => {
@@ -195,10 +206,9 @@ const controlForm = (pageUrl, existentsLinks) => {
 const controlNotas = (pageUrl) => {
     let state = false;
     let notas = document.getElementById("notas");
-    notas.style.display = "none";
     document.getElementById("btnVer").addEventListener("click", (e) => {
         console.log("in")
-        notas.style.display = state?  "none" : "block";
+        notas.style.display = state?  "none" : "flex";
         state = !state;
     })
     document.getElementById("fatherListInterpolate").innerText = `[ ${pageUrl.map(e => ' '+e)} ]`;

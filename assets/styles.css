@@ -200,7 +200,7 @@ input{
     border: none;
     outline: none;
     color: #c01d53;
-    max-width: 185px;
+    width: 175px;
 }
 
 .btn{
@@ -212,7 +212,7 @@ input{
     font-size: 13px;
     border: none;
     outline: none;
-    border: 3px solid #c01d53;
+    border: 2px solid #c01d53;
     font-weight: 800;
 }
 
@@ -235,7 +235,7 @@ input{
     width: 80%;
     min-width: 260px;
     max-width: 700px;
-    display: flex;
+    display: none;
     flex-direction: row;
     padding: 30px;
 }
@@ -252,6 +252,21 @@ b{
     text-align: left;
     padding: .6em 1em;
 }
+
+.inpContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.err{
+    font-size: 11px;
+    color: #e02f6b;
+    text-align: left;
+    padding-left: 5px;
+    width: 175px;
+    display: none;
+}
+
 @keyframes wave {
   0% {
     margin-left: 0;

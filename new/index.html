@@ -38,23 +38,29 @@
                     <form id="formulario">
                         <div class="formChild">
                             <label for="tag"> Tag del link* </label>
-                            <input
-                                type="text"
-                                name="tag"
-                                id="tag"
-                                placeholder="enf-algo"
-                                required
-                            />
+                            <div class="inpContainer">
+                                <input
+                                    type="text"
+                                    name="tag"
+                                    id="tag"
+                                    placeholder="enf-algo"
+                                    required
+                                />
+                                <span id="errTag" class="err">*Nota: el tag ya existe</span>
+                            </div>
                         </div>
                         <div class="formChild">
                             <label for="link"> El link* </label>
-                            <input
-                                type="text"
-                                name="link"
-                                id="link"
-                                placeholder="https://enfermeria.com"
-                                required
-                            />
+                            <div class="inpContainer">
+                                <input
+                                    type="text"
+                                    name="link"
+                                    id="link"
+                                    placeholder="https://enfermeria.com"
+                                    required
+                                />
+                                <span id="errLink" class="err">*Nota: el link no es valido</span>
+                            </div>
                         </div>
                         <div class="formChild">
                             <label for="title"> Titulo descriptivo* </label>
@@ -77,13 +83,16 @@
                         </div>
                         <div class="formChild">
                             <label for="fathers"> Pagina padre* </label>
-                            <input
-                                type="text"
-                                name="fathers"
-                                id="fathers"
-                                placeholder="/enf,/uno,/uno-docs"
-                                required
-                            />
+                            <div class="inpContainer">
+                                <input
+                                    type="text"
+                                    name="fathers"
+                                    id="fathers"
+                                    placeholder="/enf,/uno,/uno-docs"
+                                    required
+                                />
+                                <span id="errFather" class="err"> </span>
+                            </div>
                         </div>
                         <div class="formChild inptCentered">
                             <input type="checkbox" name="isImg" id="isImg" />
@@ -91,13 +100,16 @@
                         </div>
                         <div class="formChild">
                             <label for="iconStyle"> Icono* </label>
-                            <input
-                                type="text"
-                                name="iconStyle"
-                                id="iconStyle"
-                                placeholder="Ver notas..."
-                                required
-                            />
+                            <div class="inpContainer">
+                                <input
+                                    type="text"
+                                    name="iconStyle"
+                                    id="iconStyle"
+                                    placeholder="Ver notas..."
+                                    required
+                                />
+                                <span id="errImg" class="err"> *Nota: si es una imagen debe comenzar con 'src' </span>
+                            </div>
                         </div>
                         <div class="formChild">
                             <label for="apiKey"> Password* </label>
@@ -124,7 +136,7 @@
                 </div>
 
                 <div id="notasContainer">
-                    <button id="btnVer" class="btn">Ver notas</button>
+                    <button id="btnVer" class="btn">Ver guia</button>
                     <div id="notas" class="frame">
                         <div class="title">
                             Este es un tutorial para rellenar el
@@ -174,7 +186,7 @@
                             y viendo como se ve. El color lo mismo, usar una app
                             externa para elegirlo y el preview para ver ocmo
                             queda. El icono
-                            <b><a href="https://iconify.design/icon-sets"
+                            <b><a target="_blank" href="https://iconify.design/icon-sets"
                                     class="underlined">
                                     elegirlo aqui
                             </a></b>, lo buscas, seleccionas y copias los datos de
