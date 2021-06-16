@@ -11,7 +11,7 @@ const increment = (name) => {
 
 const createTemplate = (data) => {
     let template = `
-<a class="frame" onclick='increment("link/${data.name}")' onauxclick='increment("link/${data.name}")' href="${data.url}">
+<a class="frame" onclick='increment("link/${data.name}")' onauxclick='increment("link/${data.name}")' href="${data.url}" target="_blank">
     <div class="title">
 `;
     template += data.iconStyle.startsWith("src")
