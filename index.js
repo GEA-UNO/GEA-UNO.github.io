@@ -28,7 +28,7 @@ const createTemplate = (data) => {
 const appendLinks = (data) => {
     let parent = document.getElementById("container");
     data.forEach((e) => {
-        parent.innerHTML += createTemplate(e);
+        parent.innerHTML = createTemplate(e) + parent.innerHTML;
     });
 };
 
