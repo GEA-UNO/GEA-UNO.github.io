@@ -313,3 +313,10 @@ b{
         max-width: 200px
     }
 }
+
+@media screen and (min-width: 1024px) {
+    #container{
+        width: 90%;
+        max-width: 1440px;
+    }
+}
