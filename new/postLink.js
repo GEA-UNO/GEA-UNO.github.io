@@ -1,4 +1,5 @@
-const url = "https://igna98.alwaysdata.net/";
+const url = "https://gealinks-api.herokuapp.com/";
+//const url = "https://igna98.alwaysdata.net/";
 
 const create = (data, key) => {
     fetch(`${url}link?key=${key}`, {
