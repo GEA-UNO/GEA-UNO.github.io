@@ -27,6 +27,7 @@ const createTemplate = (data) => {
 };
 
 const appendLinks = (data) => {
+    data.sort( () => .5 - Math.random())
     let parent = document.getElementById("container");
     data.forEach((e) => {
         parent.innerHTML = createTemplate(e) + parent.innerHTML;
